@@ -12,14 +12,12 @@
   margin-top: 5rem;
 }
 
-/* Centraliza o título */
 .title {
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 16px;
 }
 
-/* Espaçamento entre input e botão */
 .inputContent {
   display: flex;
   align-items: center;
@@ -29,7 +27,6 @@
   width: 100%;
 }
 
-/* Inputs responsivos */
 .input {
   flex: 1;
   padding: 1rem;
@@ -48,7 +45,6 @@
   box-shadow: 0 0 8px rgba(0, 188, 212, 0.8);
 }
 
-/* Botão com ajuste de tamanho */
 .button {
   display: flex;
   align-items: center;
@@ -78,7 +74,6 @@
   transform: scale(1.05);
 }
 
-/* Resultados responsivos */
 .resultContainer {
   margin-top: 20px;
   display: flex;
@@ -112,7 +107,6 @@
   color: #FFF;
 }
 
-/* 📱 Estilos para telas menores que 768px */
 @media (max-width: 768px) {
   .container {
     max-width: 90%;
@@ -144,7 +138,6 @@
   }
 }
 
-/* 📱 Estilos para telas muito pequenas (≤ 480px) */
 @media (max-width: 480px) {
   .title {
     font-size: 1.2rem;
