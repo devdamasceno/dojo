@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./styles.module.css";
+import { FaSearch } from "react-icons/fa";
+
 
 interface AccountData {
   balances: { balance: string }[];
@@ -87,17 +89,18 @@ const Desafio01: React.FC = () => {
     <>
       <ToastContainer position="top-right" autoClose={3000} />
       <div className={styles.container}>
-        <h1 className={styles.title}>Consultar Dados</h1>
+        <h1 className={styles.title}>Stellar Explorador de Blocos</h1>
+        <p>Nesta página, você pode buscar Blocos, Transações e Saldos em um só lugar.</p>
         <div className={styles.inputContent}>
           <input
             type="text"
             value={accountId}
             onChange={(e) => setAccountId(e.target.value)}
-            placeholder="Digite o ID da Conta"
+            placeholder="ID da conta"
             className={styles.input}
           />
           <button onClick={fetchAccountData} className={styles.button} disabled={loadingAccount}>
-            {loadingAccount ? "Carregando..." : "Buscar Saldo"}
+            <FaSearch />
           </button>
         </div>
 
@@ -106,11 +109,11 @@ const Desafio01: React.FC = () => {
             type="text"
             value={sequence}
             onChange={(e) => setSequence(e.target.value)}
-            placeholder="Digite o Sequence do Bloco"
+            placeholder="Sequence do bloco"
             className={styles.input}
           />
           <button onClick={fetchLedgerData} className={styles.button} disabled={loadingLedger}>
-            {loadingLedger ? "Carregando..." : "Buscar Bloco"}
+            <FaSearch />
           </button>
         </div>
 
@@ -119,11 +122,11 @@ const Desafio01: React.FC = () => {
             type="text"
             value={transactionHash}
             onChange={(e) => setTransactionHash(e.target.value)}
-            placeholder="Digite o Hash da Transação"
+            placeholder="Hash da transação"
             className={styles.input}
           />
           <button onClick={fetchTransactionData} className={styles.button} disabled={loadingTransaction}>
-            {loadingTransaction ? "Carregando..." : "Buscar Transação"}
+            <FaSearch />
           </button>
         </div>
       </div>
