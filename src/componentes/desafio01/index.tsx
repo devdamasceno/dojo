@@ -4,13 +4,12 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "./styles.module.css";
 import { FaSearch } from "react-icons/fa";
 
-
 interface AccountData {
   balances: { balance: string }[];
 }
 
 interface LedgerData {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 interface TransactionData {
@@ -33,7 +32,7 @@ const Desafio01: React.FC = () => {
     setLoadingAccount(true);
     try {
       const response = await fetch(`https://ci.multdesk.com.br/accounts/${accountId}`);
-      const result = await response.json();
+      const result = (await response.json()) as AccountData;
       if (response.status !== 200) {
         toast.error("Erro ao buscar dados da conta!");
         return;
@@ -52,7 +51,7 @@ const Desafio01: React.FC = () => {
     setLoadingLedger(true);
     try {
       const response = await fetch(`https://ci.multdesk.com.br/ledgers/${sequence}`);
-      const result = await response.json();
+      const result = (await response.json()) as LedgerData;
       if (response.status !== 200) {
         toast.error("Erro ao buscar dados do bloco!");
         return;
@@ -71,7 +70,7 @@ const Desafio01: React.FC = () => {
     setLoadingTransaction(true);
     try {
       const response = await fetch(`https://ci.multdesk.com.br/transactions/${transactionHash}`);
-      const result = await response.json();
+      const result = (await response.json()) as TransactionData;
       if (response.status !== 200) {
         toast.error("Erro ao buscar dados da transação!");
         return;
@@ -91,6 +90,7 @@ const Desafio01: React.FC = () => {
       <div className={styles.container}>
         <h1 className={styles.title}>Stellar Explorador de Blocos</h1>
         <p>Nesta página, você pode buscar Blocos, Transações e Saldos em um só lugar.</p>
+        
         <div className={styles.inputContent}>
           <input
             type="text"

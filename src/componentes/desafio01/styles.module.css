@@ -12,22 +12,26 @@
   margin-top: 5rem;
 }
 
+/* Centraliza o título */
 .title {
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 16px;
 }
 
+/* Espaçamento entre input e botão */
 .inputContent {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
+/* Inputs responsivos */
 .input {
-  width: 100%;
+  flex: 1;
   padding: 1rem;
   border: 2px solid #444;
   border-radius: 8px;
@@ -36,6 +40,7 @@
   font-size: 1rem;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
 }
 
 .input:focus {
@@ -43,11 +48,12 @@
   box-shadow: 0 0 8px rgba(0, 188, 212, 0.8);
 }
 
+/* Botão com ajuste de tamanho */
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.2rem 2rem;
+  padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -67,9 +73,12 @@
 }
 
 .button:hover {
-  background-color: #0056b3
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  box-shadow: 0 5px 10px rgba(0, 123, 255, 0.6);
+  transform: scale(1.05);
 }
 
+/* Resultados responsivos */
 .resultContainer {
   margin-top: 20px;
   display: flex;
@@ -78,16 +87,19 @@
 }
 
 .resultBox {
+  max-width: 800px;
   background-color: #333;
   padding: 15px;
   border-radius: 6px;
+  margin: 1rem auto;
   box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
 }
 
 .resultBox h2 {
   margin-bottom: 10px;
   font-size: 1.2rem;
-  color: #00bcd4;
+  color: #FFF;
 }
 
 .resultBox pre {
@@ -98,4 +110,51 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   color: #FFF;
+}
+
+/* 📱 Estilos para telas menores que 768px */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .inputContent {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .input {
+    width: 100%;
+    padding: 0.9rem;
+  }
+
+  .button {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .resultBox {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* 📱 Estilos para telas muito pequenas (≤ 480px) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .input {
+    font-size: 0.9rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
+  }
 }
