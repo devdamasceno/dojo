@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 
+interface AccountData {
+  balances: { balance: string }[];
+}
+
+interface LedgerData {
+  sequence: number;
+}
+
+interface TransactionData {
+  id: string;
+}
+
+
 const Desafio01: React.FC = () => {
   const [accountId, setAccountId] = useState("");
   const [sequence, setSequence] = useState("");
   const [transactionHash, setTransactionHash] = useState("");
-  const [accountData, setAccountData] = useState<any>(null);
-  const [ledgerData, setLedgerData] = useState<any>(null);
-  const [transactionData, setTransactionData] = useState<any>(null);
+  const [accountData, setAccountData] = useState<AccountData | null>(null);
+  const [ledgerData, setLedgerData] = useState<LedgerData | null>(null);
+  const [transactionData, setTransactionData] = useState<TransactionData | null>(null);
   const [loading, setLoading] = useState(false);
 
   const fetchAccountData = async () => {
@@ -55,16 +68,16 @@ const Desafio01: React.FC = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Consultar Dados</h1>
-      
-      <input 
-        type="text" 
-        value={accountId} 
+
+      <input
+        type="text"
+        value={accountId}
         onChange={(e) => setAccountId(e.target.value)}
-        placeholder="Digite o ID da Conta" 
+        placeholder="Digite o ID da Conta"
         className={styles.input}
       />
-      <button 
-        onClick={fetchAccountData} 
+      <button
+        onClick={fetchAccountData}
         className={styles.button}
         disabled={loading}
       >
@@ -76,15 +89,15 @@ const Desafio01: React.FC = () => {
         </div>
       )}
 
-      <input 
-        type="text" 
-        value={sequence} 
+      <input
+        type="text"
+        value={sequence}
         onChange={(e) => setSequence(e.target.value)}
-        placeholder="Digite o Sequence do Bloco" 
+        placeholder="Digite o Sequence do Bloco"
         className={styles.input}
       />
-      <button 
-        onClick={fetchLedgerData} 
+      <button
+        onClick={fetchLedgerData}
         className={styles.button}
         disabled={loading}
       >
@@ -96,15 +109,15 @@ const Desafio01: React.FC = () => {
         </div>
       )}
 
-      <input 
-        type="text" 
-        value={transactionHash} 
+      <input
+        type="text"
+        value={transactionHash}
         onChange={(e) => setTransactionHash(e.target.value)}
-        placeholder="Digite o Hash da Transação" 
+        placeholder="Digite o Hash da Transação"
         className={styles.input}
       />
-      <button 
-        onClick={fetchTransactionData} 
+      <button
+        onClick={fetchTransactionData}
         className={styles.button}
         disabled={loading}
       >
